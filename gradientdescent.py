@@ -63,7 +63,6 @@ cost_history = list()
 
 with tf.Session() as session:
     session.run(init_op)
-    print(session.run([a, b, cost], {x: xs, y: ys}))
     for i in range(iterations):
         _, cost_value = session.run([train_op, cost], {x: xs, y: ys})
         cost_history.append(cost_value)
