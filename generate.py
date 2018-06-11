@@ -5,13 +5,13 @@ import numpy as np
 # Config
 MIN_X = -1.
 MAX_X = 1.
-NUM_POINTS = 30
-NOISE_X = .02
-NOISE_Y = .03
+NUM_POINTS = 100
+NOISE_X = .1
+NOISE_Y = .3
 
 
 def f(x):
-    return 1.53 * x + 100
+    return 1.53 * x + 10
 
 
 # Generation
