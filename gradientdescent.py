@@ -62,32 +62,32 @@ init_op = tf.global_variables_initializer()
 cost_history = list()
 
 with tf.Session() as session:
-	session.run(init_op)
-	
-	plt.ion()
-	plt.show()
-	
-	for i in range(iterations):
-		print("Iteration", i+1)
-		_, cost_value = session.run([train_op, cost], {x: xs, y: ys})
-		cost_history.append(cost_value)
+    session.run(init_op)
 
-		# Visualize
-		interval = np.arange(-1, 1, .05)
-		interval_y_pred = session.run(y_pred, {x: interval})
-		
-		plt.clf()
-		plt.subplots_adjust(hspace=0.3)
-		plt.subplot(211)
-		plt.plot(xs, ys, 'bo', interval, interval_y_pred, 'r-')
-		plt.title('Labeled data and predictions')
-		plt.axis([-1, 1, 0, 15])
-		
-		plt.subplot(212)
-		plt.plot(cost_history)
-		plt.title("Cost function over iterations")
-		
-		plt.draw()
-		plt.pause(0.001)
-		input("Press [enter] to continue.")
+    plt.ion()
+    plt.show()
+
+    for i in range(iterations):
+        print("Iteration", i + 1)
+        _, cost_value = session.run([train_op, cost], {x: xs, y: ys})
+        cost_history.append(cost_value)
+
+        # Visualize
+        interval = np.arange(-1, 1, .05)
+        interval_y_pred = session.run(y_pred, {x: interval})
+
+        plt.clf()
+        plt.subplots_adjust(hspace=0.3)
+        plt.subplot(211)
+        plt.plot(xs, ys, 'bo', interval, interval_y_pred, 'r-')
+        plt.title('Labeled data and predictions')
+        plt.axis([-1, 1, 0, 15])
+
+        plt.subplot(212)
+        plt.plot(cost_history)
+        plt.title("Cost function over iterations")
+
+        plt.draw()
+        plt.pause(0.001)
+        input("Press [enter] to continue.")
 input("Done")

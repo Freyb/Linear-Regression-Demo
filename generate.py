@@ -1,6 +1,7 @@
 from random import uniform
 
 import numpy as np
+import matplotlib.pyplot as plt
 
 # Config
 MIN_X = -1.
@@ -26,3 +27,6 @@ for i in np.linspace(MIN_X + NOISE_X, MAX_X - NOISE_X, NUM_POINTS):
 
 print("xs = ", xs)
 print("ys = ", ys)
+
+plt.plot(xs, ys, "bx")
+plt.show()
